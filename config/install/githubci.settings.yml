@@ -1,0 +1,34 @@
+endpoints:
+  commits:
+    base:
+      method: GET
+      uri: '/commits?state=all&per_page=100'
+    name:
+      method: GET
+      uri: '/commits?state=all&per_page=100&author={author}'
+  issues:
+    status:
+      open:
+        method: GET
+        uri: '/issues?state=open&per_page=100'
+      closed:
+        method: GET
+        uri: '/issues?state=closed&per_page=100'
+  pulls:
+    base:
+      method: GET
+      uri: /pulls?state=all&per_page=100
+    name:
+      method: GET
+      uri: /pulls?state=all&per_page=100&author={author}
+    status:
+      open:
+        method: GET
+        uri: '/pulls?state=open&per_page=100'
+      closed:
+        method: GET
+        uri: '/pulls?state=closed&per_page=100'
+  users:
+    method: GET
+    uri: /contributors
+  

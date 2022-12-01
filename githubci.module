@@ -1,0 +1,52 @@
+<?php
+
+/**
+ * @file
+ * Implements hook_theme().
+ */
+function githubci_theme($existing, $type, $theme, $path)
+{
+  return [
+    'demo_block' => [
+      'variables' => ['id' => NULL],
+    ],
+  ];
+}
+
+
+function githubci_preprocess_block(&$variables)
+{
+ 
+  if ($variables['elements']['#configuration']['provider'] === 'githubci') {
+
+    // getting the array data from drupal setting.
+    $datavalue = $variables['elements']['content']['#attached']['drupalSettings']['githubci'][0];
+    $chartType = $variables['elements']['content']['#attached']['drupalSettings']['githubci'][1];
+  
+      $id = $variables['attributes']['id'];
+      \Drupal::state()->set('blockid', $id);
+      $variables['#attached'] = [
+        'drupalSettings' => [
+          'githubci' => [
+            'chartblock_'.$id . '_datavalue' => $datavalue,
+            'chartblock_'.$id . '_chartType' => $chartType,
+          ],
+        ],
+      ];
+
+      // Filtering data to get heading.
+      $blockCategory = $variables['elements']['content']['#attached']['drupalSettings']['githubci']['block_category'];
+      \Drupal::state()->set('blockCategory', $blockCategory);
+    }
+  
+  }
+
+function githubci_preprocess_demo_block(&$variables)
+{
+
+  $id = \Drupal::state()->get('blockid');
+  $variables['block_id'] = $id;
+
+  $blockCategory = \Drupal::state()->get('blockCategory');
+  $variables['title'] = $blockCategory;
+}

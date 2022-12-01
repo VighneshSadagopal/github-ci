@@ -1,0 +1,7 @@
+global-styling:
+  css:
+    theme:
+      css/githubci.css: {}
+  js:
+    js/request.js: {}
+    https://www.gstatic.com/charts/loader.js: { type: external }

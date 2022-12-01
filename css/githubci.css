@@ -1,0 +1,9 @@
+.chart-type-radio .form-radios {
+    display: flex;
+    flex-flow: wrap column;
+    max-height: 150px;
+}
+.chart_id{
+    font-size: x-large;
+    text-align: center;
+}

@@ -1,0 +1,17 @@
+{#
+/**
+ * @file
+ * Default theme implementation to display a block.
+ *
+ * Available variables:
+ * block_id: A id of the div.
+ * title: The title of the block.
+ *
+ * @see template_preprocess_block()
+ *
+ */
+#}
+
+<div id= {{'chartblock_'~ block_id }} class='chartblock' style="height:400px">
+</div>
+<h2 class= 'chart_id'>{{ title }}</h2>

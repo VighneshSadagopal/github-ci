@@ -1,0 +1,7 @@
+services:
+  github.client:
+    class: Drupal\githubci\Services\GithubClient
+    arguments: ['@config.factory', '@http_client', '@logger.factory']
+  github.utils:
+    class: Drupal\githubci\Services\GithubUtils
+    arguments: ['@github.client']
