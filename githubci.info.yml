@@ -3,6 +3,3 @@ type: module
 description: Integration with the github repos and details
 core_version_requirement: ^9 || ^10
 package: Github
-dependencies:
-  - charts
-configure: githubci.admin_settings
